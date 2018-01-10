@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database conexao e configuracoes -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost/db_sistema</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">andre2018</property>
+
+        <!-- Pool de conexao do banco de dados-->
+        <property name="connection.pool_size">1</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+
+        <!--Gerenciamento da secao -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Disable cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+
+        <!-- Exibir os comando SQL -->
+        <property name="show_sql">true</property>
+
+        <!-- Cria as tabelas qualquer auteracao no codigo java atualiza o banco de dados  -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <mapping class="br.com.oasissistemas.domain.Fabricante" />
+		<mapping class="br.com.oasissistemas.domain.Funcionario"/>
+		<mapping class="br.com.oasissistemas.domain.Produto"/>
+		<mapping class="br.com.oasissistemas.domain.Venda"/>
+		<mapping class="br.com.oasissistemas.domain.Item"/>
+		
+		
+    </session-factory>
+
+</hibernate-configuration>
